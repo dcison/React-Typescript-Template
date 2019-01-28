@@ -1,0 +1,60 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+          "experimentalObjectRestSpread": true,
+          "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "parser": "typescript-eslint-parser",
+    "plugins": [
+        "react",
+        "typescript"
+    ],
+    "rules": {
+        "linebreak-style": ["error", "unix"],
+        "semi": ["error", "always"],
+        "array-bracket-spacing": [2, "never"],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "comma-spacing": [2, { "before": false, "after": true }],
+        "computed-property-spacing": [2,"never"],
+        "no-console": 0,
+        "strict": [2, "global"],
+        "no-alert": 2,
+        "space-before-function-paren": 2,
+        "block-scoped-var": 0,
+        "one-var": 0,
+        "camelcase": 0,
+        "no-undef": 0,
+        "no-unused-vars": 0,
+        "newline-after-var": 0,
+        "quotes": [0, "single", "avoid-escape"],
+        "space-before-blocks": 2,
+        "one-var-declaration-per-line": 2,
+        "no-multiple-empty-lines": [2, { "maxBOF": 0, "max": 2, "maxEOF": 0 }],
+        "max-len": [2, 200, 4, {
+          "comments": 180
+        }],
+        "max-depth": [2, { "max": 4 }],
+        "max-params": [2, { "max": 5 }],
+        "max-statements": [2, { "max": 60 }],
+        "no-tabs":0,
+        "indent": [2, "tab", {"SwitchCase": 2}],
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+        "wrap-iife": [2, "any"],
+        "no-lonely-if": 2,
+        "brace-style": [2, "1tbs", {"allowSingleLine": false}],
+        "curly": [2, "all"],
+        "no-debugger": 2,
+        "operator-linebreak": [2, "before"],
+        "no-proto": 0,
+        "no-new": 0,
+        "no-dupe-keys": 0
+    }
+}

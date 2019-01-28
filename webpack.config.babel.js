@@ -4,7 +4,7 @@ export default {
 	mode: 'development',
 	devtool: 'eval',
 	entry: {
-		index: './src/index.js',
+		index: './src/index.ts',
 	},
 	output: {
 		publicPath: '/',
@@ -15,14 +15,14 @@ export default {
 	module: {
 		rules: [
 			{
-			  test: /\.js$/,
-			  exclude: /node_modules/,
-			  use: {
-				loader: 'babel-loader'
-			  }
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				use: {
+					loader: 'ts-loader'
+				}
 			}
 		]
-	},	
+	},
 	devServer: {
 		hot: true,
 		port: 3000
