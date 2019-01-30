@@ -1,10 +1,11 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
 	mode: 'development',
 	devtool: 'eval',
 	entry: {
-		index: './src/index.ts',
+		index: './src/index.tsx',
 	},
 	output: {
 		publicPath: '/',
@@ -12,6 +13,14 @@ export default {
 		chunkFilename: 'js/[name].js',
 		path: path.resolve(__dirname, 'dist')
 	},
+	plugins: [	
+		new HtmlWebpackPlugin({
+			title: '模板',
+			hash: false,
+			filename: 'index.html',
+			template: './index.html',
+		})
+	],
 	module: {
 		rules: [
 			{
@@ -24,7 +33,6 @@ export default {
 		]
 	},
 	devServer: {
-		hot: true,
 		port: 3000
 	},
 	resolve: {
