@@ -61,6 +61,7 @@ export default {
 		]
 	},
 	devServer: {
+		historyApiFallback: true,
 		port: 3000
 	},
 	resolve: {
