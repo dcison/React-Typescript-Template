@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
-// import type from './components/Apple';
+import './global.styl';
 class SomeComponent extends React.Component<{}, {}> {
 	render () {
 		return <div>hello</div>;

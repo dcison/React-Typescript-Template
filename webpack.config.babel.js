@@ -24,6 +24,34 @@ export default {
 	module: {
 		rules: [
 			{
+				test: /\.css$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							localIdentName: '[path][name]__[local]--[hash:base64:5]'
+						}
+					}
+				]
+			},
+			{
+				test: /\.styl$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							import: true,
+							importLoaders: 1,
+							localIdentName: '[path][name]__[local]--[hash:base64:5]'
+						}
+					},
+					{ loader: 'stylus-loader' },
+				]
+			},
+			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
 				use: {
