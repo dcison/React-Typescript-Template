@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from 'react-router-dom';
-import Apple from './components/Apple';
-import Xiaomi from './components/XiaoMi';
+import asyncComponent from "./components/asyncComponent";
+const Apple =  asyncComponent(() => import("./components/Apple"));
+const XiaoMi =  asyncComponent(() => import("./components/XiaoMi"));
 import './global.styl';
 const Header = () => (
 	<ul>
@@ -17,7 +18,7 @@ ReactDOM.render(
 			<Header />
 			<Switch>
 				<Route path="/phone/apple" component={Apple} />
-				<Route path="/phone/xiaomi" component={Xiaomi} />
+				<Route path="/phone/xiaomi" component={XiaoMi} />
 				<Redirect to="/phone/apple" />
 			</Switch>
 			</>
