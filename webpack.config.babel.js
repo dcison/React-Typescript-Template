@@ -1,4 +1,5 @@
 import path from 'path';
+import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
@@ -19,7 +20,8 @@ export default {
 			hash: false,
 			filename: 'index.html',
 			template: './index.html',
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
 		rules: [
@@ -61,6 +63,7 @@ export default {
 		]
 	},
 	devServer: {
+		hot: true,
 		historyApiFallback: true,
 		port: 3000
 	},
