@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch, Link } from 'react-router-dom';
 import asyncComponent from "./components/asyncComponent";
 const Apple =  asyncComponent(() => import("./components/Apple"));
 const XiaoMi =  asyncComponent(() => import("./components/XiaoMi"));
+import store from './store';
 import './global.styl';
 const Header = () => (
 	<ul>
@@ -12,7 +14,7 @@ const Header = () => (
 	</ul>
 );
 ReactDOM.render(
-	<div>
+	<Provider store={store}>
 		<BrowserRouter>
 			<>
 			<Header />
@@ -23,7 +25,7 @@ ReactDOM.render(
 			</Switch>
 			</>
 		</BrowserRouter>
-	</div>,
+	</Provider>,
 	document.getElementById('root')
 );
 
