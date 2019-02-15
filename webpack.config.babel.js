@@ -2,6 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+
 export default {
 	mode: 'development',
 	devtool: 'eval',
@@ -21,6 +22,7 @@ export default {
 			filename: 'index.html',
 			template: './index.html',
 		}),
+		new webpack.WatchIgnorePlugin([/styl\.d\.ts$/]),
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
@@ -39,15 +41,18 @@ export default {
 			},
 			{
 				test: /\.styl$/,
+				include: path.resolve('src/'),
 				use: [
 					'style-loader',
 					{
-						loader: 'css-loader',
+						loader: 'typings-for-css-modules-loader',
 						options: {
 							modules: true,
-							import: true,
-							importLoaders: 1,
-							localIdentName: '[path][name]__[local]--[hash:base64:5]'
+							namedExport: true,
+							camelCase: true,
+							minimize: true,
+							localIdentName: "[local]_[hash:base64:5]",
+							stylus: true
 						}
 					},
 					{ loader: 'stylus-loader' },

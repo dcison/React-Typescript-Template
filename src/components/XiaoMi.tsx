@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import * as action from '../actions';
+import * as styles from './xiaomi.styl';
+
 class Xiaomi extends React.Component<any, any> {
 	componentDidMount () {
 		this.props.initPhone({ name: '小米MIX2s', money: 2800 });
@@ -10,7 +12,7 @@ class Xiaomi extends React.Component<any, any> {
     }
     render () {
     	return <>
-            <button onClick={this.handleChange}>点我降价</button>
+            <button onClick={this.handleChange} className={styles.blueFont}>点我降价</button>
             {this.props.name} 现在仅售价 {this.props.money}
         </>;
     }
